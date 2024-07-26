@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmwqtuy0jft8j"]
+[gd_scene load_steps=3 format=3 uid="uid://cmwqtuy0jft8j"]
 
-[ext_resource type="PackedScene" uid="uid://cnu3fstihbbn4" path="res://player/player.tscn" id="1_r14v1"]
+[ext_resource type="PackedScene" uid="uid://cnu3fstihbbn4" path="res://game/player/player.tscn" id="1_r14v1"]
+[ext_resource type="Script" path="res://game/line/collision_line.gd" id="2_yg1x3"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -16,7 +17,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(-1794, 971, 1789, 1001, 1816, -1000, -1752, -969)
-width = 20.0
+[node name="CollisionLine" type="Line2D" parent="."]
+position = Vector2(-4344, 846)
+points = PackedVector2Array(0, 0, 10000, 0)
 default_color = Color(0, 0, 0, 1)
+script = ExtResource("2_yg1x3")
+
+[node name="CollisionLine2" type="Line2D" parent="."]
+position = Vector2(-4663, -901)
+points = PackedVector2Array(0, 0, 10000, 0)
+default_color = Color(0, 0, 0, 1)
+script = ExtResource("2_yg1x3")
