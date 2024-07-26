@@ -28,3 +28,10 @@ position = Vector2(-4663, -901)
 points = PackedVector2Array(0, 0, 10000, 0)
 default_color = Color(0, 0, 0, 1)
 script = ExtResource("2_yg1x3")
+
+[node name="CollisionLine3" type="Line2D" parent="."]
+position = Vector2(3585, -1949)
+rotation = 1.57079
+points = PackedVector2Array(0, 0, 10000, 0)
+default_color = Color(0, 0, 0, 1)
+script = ExtResource("2_yg1x3")

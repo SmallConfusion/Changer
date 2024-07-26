@@ -15,13 +15,12 @@ const FISH_MAX_SPEED := 20000.0
 const COYOTE_TIME := 0.1
 const INPUT_COOLDOWN := 0.25
 
-## 1 if right, -1 if left
-var facing_dir := 1
-
 var current_animal := Animal.BIRD
 var next_input := Animal.NONE
 
 var input_timer := 0.0
+
+var previous_velocity: Vector2
 
 
 func _physics_process(delta: float) -> void:
@@ -61,7 +60,7 @@ func _bird_movement() -> void:
 
 
 func _bird_action() -> void:
-	velocity.x += BIRD_IMPULSE_X
+	velocity.x += BIRD_IMPULSE_X * _get_direction()
 	velocity.y = min(-BIRD_IMPULSE_Y, velocity.y - BIRD_IMPULSE_Y)
 
 
@@ -70,7 +69,7 @@ func _fish_movement() -> void:
 
 
 func _fish_action() -> void:
-	velocity.x = lerp(velocity.x, FISH_MAX_SPEED, 0.25)
+	velocity.x = lerp(velocity.x, FISH_MAX_SPEED, 0.25) * _get_direction()
 
 
 func _phoenix_movement() -> void:
@@ -123,3 +122,18 @@ func _get_current_input() -> Animal:
 
 func _move_and_bounce() -> void:
 	move_and_slide()
+
+	if get_slide_collision_count() > 0:
+		var col := get_slide_collision(0)
+		velocity = previous_velocity.bounce(col.get_normal())
+
+	previous_velocity = velocity
+
+
+func _get_direction() -> float:
+	var dir: float = sign(velocity.x)
+
+	if dir == 0:
+		dir = 1
+
+	return dir
