@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmwqtuy0jft8j"]
+
+[ext_resource type="PackedScene" uid="uid://cnu3fstihbbn4" path="res://player/player.tscn" id="1_r14v1"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_r14v1")]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-1794, 971, 1789, 1001, 1816, -1000, -1752, -969)
+width = 20.0
+default_color = Color(0, 0, 0, 1)
