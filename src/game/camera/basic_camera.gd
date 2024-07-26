@@ -1,3 +1,4 @@
+class_name BasicCamera
 extends Camera2D
 
 

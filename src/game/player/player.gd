@@ -1,6 +1,19 @@
+class_name Player
 extends CharacterBody2D
 
 enum Animal { BIRD, FISH, PHOENIX, NONE }
+
+var animal_movements := {
+	Animal.BIRD: _bird_movement,
+	Animal.FISH: _fish_movement,
+	Animal.PHOENIX: _phoenix_movement,
+}
+
+var animal_actions := {
+	Animal.BIRD: _bird_action,
+	Animal.FISH: _fish_action,
+	Animal.PHOENIX: _phoenix_action,
+}
 
 const FRICTION := 0.99
 
@@ -24,34 +37,16 @@ var previous_velocity: Vector2
 
 
 func _physics_process(delta: float) -> void:
+	print(get_direction())
+
 	var should_action := _handle_input(delta)
 
-	_animal_movement()
+	animal_movements[current_animal].call()
 
 	if should_action:
-		_animal_action()
+		animal_actions[current_animal].call()
 
 	_move_and_bounce()
-
-
-func _animal_action():
-	match current_animal:
-		Animal.BIRD:
-			_bird_action()
-		Animal.FISH:
-			_fish_action()
-		Animal.PHOENIX:
-			_phoenix_action()
-
-
-func _animal_movement():
-	match current_animal:
-		Animal.BIRD:
-			_bird_movement()
-		Animal.FISH:
-			_fish_movement()
-		Animal.PHOENIX:
-			_phoenix_movement()
 
 
 func _bird_movement() -> void:
@@ -60,7 +55,7 @@ func _bird_movement() -> void:
 
 
 func _bird_action() -> void:
-	velocity.x += BIRD_IMPULSE_X * _get_direction()
+	velocity.x += BIRD_IMPULSE_X * get_direction()
 	velocity.y = min(-BIRD_IMPULSE_Y, velocity.y - BIRD_IMPULSE_Y)
 
 
@@ -69,7 +64,7 @@ func _fish_movement() -> void:
 
 
 func _fish_action() -> void:
-	velocity.x = lerp(velocity.x, FISH_MAX_SPEED, 0.25) * _get_direction()
+	velocity.x = lerp(velocity.x, FISH_MAX_SPEED * get_direction(), 0.25)
 
 
 func _phoenix_movement() -> void:
@@ -130,10 +125,14 @@ func _move_and_bounce() -> void:
 	previous_velocity = velocity
 
 
-func _get_direction() -> float:
+func get_direction() -> float:
 	var dir: float = sign(velocity.x)
 
 	if dir == 0:
 		dir = 1
 
 	return dir
+
+
+func get_speed() -> float:
+	return velocity.length()

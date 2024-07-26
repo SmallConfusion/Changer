@@ -6,6 +6,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_r14v1")]
+position = Vector2(238, -849)
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -128
@@ -18,19 +19,19 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CollisionLine" type="Line2D" parent="."]
-position = Vector2(-4344, 846)
+position = Vector2(-4106, -3)
 points = PackedVector2Array(0, 0, 10000, 0)
 default_color = Color(0, 0, 0, 1)
 script = ExtResource("2_yg1x3")
 
 [node name="CollisionLine2" type="Line2D" parent="."]
-position = Vector2(-4663, -901)
+position = Vector2(-4425, -1750)
 points = PackedVector2Array(0, 0, 10000, 0)
 default_color = Color(0, 0, 0, 1)
 script = ExtResource("2_yg1x3")
 
 [node name="CollisionLine3" type="Line2D" parent="."]
-position = Vector2(3585, -1949)
+position = Vector2(3823, -2798)
 rotation = 1.57079
 points = PackedVector2Array(0, 0, 10000, 0)
 default_color = Color(0, 0, 0, 1)

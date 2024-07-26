@@ -13,7 +13,7 @@ func _ready() -> void:
 	var collision_shape = CollisionShape2D.new()
 	var shape = RectangleShape2D.new()
 
-	shape.size = Vector2((p2 - p1).length(), Visuals.LINE_WIDTH)
+	shape.size = Vector2((p2 - p1).length(), Visuals.PENCIL_WIDTH)
 
 	collision_shape.shape = shape
 	collision_shape.position = (p2 - p1) / 2 + p1
