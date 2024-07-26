@@ -3,7 +3,12 @@ extends EditorPlugin
 
 const AUTOLOAD_NAME := "PlayerAccounts"
 const CUSTOM_PROPERTIES := [
-	{"name": "quiver/general/auth_token", "default": "", "basic": true, "general": true},
+	{
+		"name": "quiver/general/auth_token",
+		"default": "",
+		"basic": true,
+		"general": true
+	},
 ]
 
 
@@ -17,9 +22,10 @@ func _enter_tree() -> void:
 			ProjectSettings.set_initial_value(name, default)
 			if basic:
 				ProjectSettings.set_as_basic(name, true)
-	add_autoload_singleton(AUTOLOAD_NAME, "res://addons/quiver_player_accounts/player_accounts.tscn")
-	if not ProjectSettings.get_setting("quiver/general/auth_token"):
-		printerr("[Quiver Player Accounts] Auth key hasn't been set for Quiver services.")
+	add_autoload_singleton(
+		AUTOLOAD_NAME,
+		"res://addons/quiver_player_accounts/player_accounts.tscn"
+	)
 
 
 func _exit_tree() -> void:
