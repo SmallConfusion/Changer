@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dehxwyaacp45s"]
 
-[ext_resource type="Script" path="res://menu/license.gd" id="1_6biyg"]
-[ext_resource type="Script" path="res://menu/scene_load_button.gd" id="2_au7i1"]
+[ext_resource type="Script" path="res://menu/license/license.gd" id="1_6biyg"]
+[ext_resource type="Script" path="res://menu/main_menu/scene_load_button.gd" id="2_au7i1"]
 
 [node name="Attribution" type="Control"]
 layout_mode = 3
@@ -50,5 +50,5 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Menu"
 script = ExtResource("2_au7i1")
-scene = "res://menu/main_menu.tscn"
+scene = "res://menu/main_menu/main_menu.tscn"
 should_grab_focus = true

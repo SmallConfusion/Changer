@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c5jp5vabay124"]
 
-[ext_resource type="Script" path="res://menu/scene_load_button.gd" id="1_wo4g1"]
+[ext_resource type="Script" path="res://menu/main_menu/scene_load_button.gd" id="1_wo4g1"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -58,4 +58,4 @@ offset_bottom = -128.0
 grow_vertical = 0
 text = "Licenses"
 script = ExtResource("1_wo4g1")
-scene = "res://menu/attribution.tscn"
+scene = "res://menu/license/attribution.tscn"
