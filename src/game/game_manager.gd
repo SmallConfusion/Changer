@@ -5,6 +5,8 @@ extends Node2D
 
 var current_checkpoint: CheckpointCollisionLine
 
+var start_time := 0.0
+
 
 func _ready() -> void:
 	for child in $LevelBuilder.get_children():
@@ -13,12 +15,15 @@ func _ready() -> void:
 
 	player.die.connect(_player_die)
 
+	start_time = Time.get_ticks_msec()
+
 
 func _checkpoint_reached(checkpoint: CheckpointCollisionLine) -> void:
 	if current_checkpoint == checkpoint:
 		return
 
 	current_checkpoint = checkpoint
+	print(get_current_time())
 
 
 func _player_die() -> void:
@@ -31,3 +36,7 @@ func _player_die() -> void:
 
 	player.velocity = Vector2.ZERO
 	player.current_animal = Player.Animal.BIRD
+
+
+func get_current_time() -> float:
+	return (Time.get_ticks_msec() - start_time) / 1000.
