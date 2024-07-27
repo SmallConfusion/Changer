@@ -23,7 +23,20 @@ func _checkpoint_reached(checkpoint: CheckpointCollisionLine) -> void:
 		return
 
 	current_checkpoint = checkpoint
-	print(get_current_time())
+
+	if checkpoint.end:
+		_end_game()
+
+
+func _end_game():
+	LeaderboardGlobal.time = get_current_time()
+
+	(
+		get_tree()
+		. change_scene_to_file
+		. bind("res://menu/leaderboard/leaderboard_screen.tscn")
+		. call_deferred()
+	)
 
 
 func _player_die() -> void:

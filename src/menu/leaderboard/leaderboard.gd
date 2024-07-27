@@ -34,3 +34,9 @@ func _generate_testing_scores(count: int) -> Array:
 		scores.append(score)
 
 	return scores
+
+
+func reload() -> bool:
+	var scores_res := await Leaderboards.get_scores(leaderboard_id, 0, 50)
+	_display_scores(scores_res.scores)
+	return true

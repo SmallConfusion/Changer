@@ -8,13 +8,13 @@ enum Animal { BIRD, FISH, PHOENIX, NONE }
 var animal_movements := {
 	Animal.BIRD: _bird_movement,
 	Animal.FISH: _fish_movement,
-	Animal.PHOENIX: func(): pass,
+	Animal.PHOENIX: _phoenix_movement,
 }
 
 var animal_actions := {
 	Animal.BIRD: _bird_action,
 	Animal.FISH: _fish_action,
-	Animal.PHOENIX: func(): pass,
+	Animal.PHOENIX: _phoenix_action,
 }
 
 var animal_moves := {
@@ -25,6 +25,8 @@ var animal_moves := {
 
 const FRICTION := 0.99
 const BIRD_WATER_FRICTION := 0.9
+
+const PHOENIX_FRICTION := 0.996
 
 const BIRD_GRAVITY := 50.0
 
@@ -39,6 +41,8 @@ const INPUT_COOLDOWN := 0.25
 
 var current_animal := Animal.BIRD
 var next_input := Animal.NONE
+
+var previous_animal := Animal.BIRD
 
 var dir := 1
 
@@ -68,6 +72,8 @@ func _physics_process(delta: float) -> void:
 	animal_moves[current_animal].call()
 
 	$Draw.scale.x = dir
+
+	previous_animal = current_animal
 
 
 func _input(e: InputEvent):
@@ -107,6 +113,16 @@ func _fish_movement() -> void:
 func _fish_action() -> void:
 	if in_water:
 		velocity.x = lerp(velocity.x, FISH_MAX_SPEED * get_direction(), 0.25)
+	else:
+		input_timer = -1
+
+
+func _phoenix_movement() -> void:
+	velocity *= PHOENIX_FRICTION
+
+
+func _phoenix_action() -> void:
+	input_timer = -1
 
 
 ## Returns whether or not to action
@@ -115,15 +131,15 @@ func _handle_input(delta: float) -> bool:
 
 	var current_input := _get_current_input()
 
-	if current_input != Animal.NONE and input_timer - COYOTE_TIME <= 0:
-		next_input = current_input
-
 	if (
-		(input_timer <= 0 or current_animal != next_input)
-		and next_input != Animal.NONE
+		current_input != Animal.NONE
+		and (input_timer - COYOTE_TIME <= 0 or current_input != current_animal)
 	):
-		input_timer = INPUT_COOLDOWN
+		next_input = current_input
 		current_animal = next_input
+
+	if input_timer <= 0 and next_input != Animal.NONE:
+		input_timer = INPUT_COOLDOWN
 		next_input = Animal.NONE
 		return true
 
