@@ -33,9 +33,9 @@ player = NodePath("../Player")
 
 [node name="FireRect" type="ColorRect" parent="."]
 z_index = 10
-offset_left = -4650.0
+offset_left = -16075.0
 offset_top = -300.0
-offset_right = 17650.0
+offset_right = 29075.0
 offset_bottom = 5825.0
 color = Color(1, 0.309804, 0.309804, 0.247059)
 script = ExtResource("4_li3n3")
