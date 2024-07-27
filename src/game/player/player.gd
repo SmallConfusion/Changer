@@ -26,7 +26,9 @@ var animal_moves := {
 const FRICTION := 0.99
 const BIRD_WATER_FRICTION := 0.9
 
-const PHOENIX_FRICTION := 0.996
+const PHOENIX_FRICTION := 1.
+
+const CHANGE_FRICTION := 0.85
 
 const BIRD_GRAVITY := 50.0
 
@@ -70,6 +72,9 @@ func _physics_process(delta: float) -> void:
 		animal_actions[current_animal].call()
 
 	animal_moves[current_animal].call()
+
+	if current_animal != previous_animal:
+		velocity *= CHANGE_FRICTION
 
 	$Draw.scale.x = dir
 
