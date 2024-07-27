@@ -1,9 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dehxwyaacp45s"]
+[gd_scene load_steps=3 format=3 uid="uid://dehxwyaacp45s"]
 
 [ext_resource type="Script" path="res://menu/license.gd" id="1_6biyg"]
+[ext_resource type="Script" path="res://menu/scene_load_button.gd" id="2_au7i1"]
 
 [node name="Attribution" type="Control"]
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,3 +34,21 @@ Campfire Crackle 2 by rbirdwise -- [url]https://freesound.org/s/157186/[/url] --
 Campfire Crackle 3 by rbirdwise -- [url]https://freesound.org/s/157187/[/url] -- License: Attribution 3.0
 Made with Godot Engine [url]https://godotengine.org/license[/url]"
 script = ExtResource("1_6biyg")
+
+[node name="SceneLoadButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -430.0
+offset_top = 745.0
+offset_right = 430.0
+offset_bottom = 985.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu"
+script = ExtResource("2_au7i1")
+scene = "res://menu/main_menu.tscn"
+should_grab_focus = true

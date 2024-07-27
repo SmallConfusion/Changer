@@ -8,7 +8,8 @@ var current_animal := Player.Animal.NONE
 var DRAW_FUNCS := {
 	Player.Animal.BIRD: _draw_bird,
 	Player.Animal.FISH: _draw_fish,
-	Player.Animal.PHOENIX: _draw_phoenix
+	Player.Animal.PHOENIX: _draw_phoenix,
+	Player.Animal.NONE: func(): pass
 }
 
 const COLORS := {
