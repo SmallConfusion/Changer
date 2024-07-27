@@ -21,7 +21,8 @@ max_speed = 10000.0
 zoom_curve = 2.0
 zoom_speed = 2.5
 look_ahead_amount = 0.6
-move_speed = 2.5
+move_speed = 3.0
+edge_lock = 2000.0
 player = NodePath("../Player")
 
 [node name="Background" type="CanvasLayer" parent="."]

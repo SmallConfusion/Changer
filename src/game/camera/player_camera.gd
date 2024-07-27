@@ -13,6 +13,11 @@ extends BasicCamera
 @export var look_ahead_amount := 0.1
 @export var move_speed := 1.
 
+@export var min_x := 0.
+@export var max_x := 15000.
+@export var limit := 1500.
+@export var edge_lock := 2500.
+
 @export var player: Player
 
 
@@ -27,11 +32,19 @@ func _process(delta: float) -> void:
 	super(delta)
 
 	var target_position := player.global_position
+
 	target_position.y = (
 		(floor(target_position.y / level_height) + 0.5) * level_height
 	)
 
-	target_position.x += player.velocity.x * look_ahead_amount
+	if player.global_position.x < min_x + edge_lock:
+		target_position.x = 0
+	elif player.global_position.x > max_x - edge_lock:
+		target_position.x = INF
+	else:
+		target_position.x += player.velocity.x * look_ahead_amount
+
+	target_position.x = clamp(target_position.x, min_x + limit, max_x - limit)
 
 	global_position = lerp(
 		target_position, global_position, exp(-move_speed * delta)
