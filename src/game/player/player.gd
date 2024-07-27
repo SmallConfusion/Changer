@@ -37,8 +37,6 @@ var previous_velocity: Vector2
 
 
 func _physics_process(delta: float) -> void:
-	print(get_direction())
-
 	var should_action := _handle_input(delta)
 
 	animal_movements[current_animal].call()

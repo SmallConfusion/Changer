@@ -1,11 +1,13 @@
 class_name CollisionLine
 extends Line
 
+var static_body: StaticBody2D
+
 
 func _ready() -> void:
 	super()
 
-	var static_body = StaticBody2D.new()
+	static_body = StaticBody2D.new()
 
 	var p1 = get_point_position(0)
 	var p2 = get_point_position(1)

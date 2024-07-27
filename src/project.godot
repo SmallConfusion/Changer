@@ -35,6 +35,10 @@ window/size/always_on_top.release=false
 
 enabled=PackedStringArray("res://addons/gdscript_formatter/plugin.cfg", "res://addons/quiver_leaderboards/plugin.cfg", "res://addons/quiver_player_accounts/plugin.cfg")
 
+[global_group]
+
+player="Contains the player"
+
 [input]
 
 bird={
