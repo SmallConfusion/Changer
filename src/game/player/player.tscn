@@ -7,8 +7,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gsm8g"]
 shader = ExtResource("2_ur5j4")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_acll0"]
-radius = 22.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6e6j"]
+size = Vector2(70, 70)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_2hydu")
@@ -18,4 +18,4 @@ material = SubResource("ShaderMaterial_gsm8g")
 script = ExtResource("3_ajxuc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_acll0")
+shape = SubResource("RectangleShape2D_x6e6j")

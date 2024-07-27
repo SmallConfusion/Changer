@@ -17,4 +17,3 @@ func _checkpoint_reached(checkpoint: CheckpointCollisionLine) -> void:
 		return
 
 	current_checkpoint = checkpoint
-	player.position = checkpoint.get_checkpoint_position()

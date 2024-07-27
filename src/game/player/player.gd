@@ -3,6 +3,19 @@ extends CharacterBody2D
 
 enum Animal { BIRD, FISH, PHOENIX, NONE }
 
+const FRICTION := 0.99
+
+const BIRD_GRAVITY := 50.0
+
+const BIRD_IMPULSE_X := 1000.0
+const BIRD_IMPULSE_Y := 2000.0
+
+const FISH_GRAVITY := 30.0
+const FISH_MAX_SPEED := 20000.0
+
+const COYOTE_TIME := 0.1
+const INPUT_COOLDOWN := 0.25
+
 var animal_movements := {
 	Animal.BIRD: _bird_movement,
 	Animal.FISH: _fish_movement,
@@ -21,21 +34,10 @@ var animal_moves := {
 	Animal.PHOENIX: _move_and_bounce,
 }
 
-const FRICTION := 0.99
-
-const BIRD_GRAVITY := 50.0
-
-const BIRD_IMPULSE_X := 1000.0
-const BIRD_IMPULSE_Y := 2000.0
-
-const FISH_GRAVITY := 30.0
-const FISH_MAX_SPEED := 20000.0
-
-const COYOTE_TIME := 0.1
-const INPUT_COOLDOWN := 0.25
-
 var current_animal := Animal.BIRD
 var next_input := Animal.NONE
+
+var dir := 1
 
 var in_water := false
 var in_fire := false
@@ -48,12 +50,16 @@ var previous_velocity: Vector2
 func _physics_process(delta: float) -> void:
 	var should_action := _handle_input(delta)
 
+	$Draw.set_animal(current_animal)
+
 	animal_movements[current_animal].call()
 
 	if should_action:
 		animal_actions[current_animal].call()
 
 	animal_moves[current_animal].call()
+
+	$Draw.scale.x = dir
 
 
 func _bird_movement() -> void:
@@ -118,18 +124,16 @@ func _move_and_bounce(bounce: Vector2 = Vector2(1, 1)) -> void:
 	move_and_slide()
 
 	if get_slide_collision_count() > 0:
-		var col := get_slide_collision(0)
-		velocity = previous_velocity.bounce(col.get_normal()) * bounce
+		var normal := get_slide_collision(0).get_normal()
+		velocity = previous_velocity.bounce(normal) * bounce
+
+		if abs(normal.x) > 0.5:
+			dir = sign(normal.x)
 
 	previous_velocity = velocity
 
 
 func get_direction() -> float:
-	var dir: float = sign(velocity.x)
-
-	if dir == 0:
-		dir = 1
-
 	return dir
 
 
