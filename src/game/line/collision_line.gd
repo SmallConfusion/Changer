@@ -27,9 +27,7 @@ func _ready() -> void:
 
 	add_child(static_body)
 
-	var area := Area2D.new()
 
-	area.add_child(collision_shape.duplicate())
-	area.body_entered.connect(checkpoint_reached.emit)
-
-	add_child(area)
+func _body_entered(body: Node2D) -> void:
+	if body is Player:
+		checkpoint_reached.emit()

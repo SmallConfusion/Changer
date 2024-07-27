@@ -1,3 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
 secret/secret.gd
+*.tmp

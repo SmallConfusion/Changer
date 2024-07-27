@@ -37,6 +37,9 @@ const INPUT_COOLDOWN := 0.25
 var current_animal := Animal.BIRD
 var next_input := Animal.NONE
 
+var in_water := false
+var in_fire := false
+
 var input_timer := 0.0
 
 var previous_velocity: Vector2
@@ -132,3 +135,19 @@ func get_direction() -> float:
 
 func get_speed() -> float:
 	return velocity.length()
+
+
+func water_enter() -> void:
+	in_water = true
+
+
+func water_exit() -> void:
+	in_water = false
+
+
+func fire_enter() -> void:
+	in_fire = true
+
+
+func fire_exit() -> void:
+	in_fire = false
