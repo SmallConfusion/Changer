@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmwqtuy0jft8j"]
+[gd_scene load_steps=9 format=3 uid="uid://cmwqtuy0jft8j"]
 
 [ext_resource type="PackedScene" uid="uid://cnu3fstihbbn4" path="res://game/player/player.tscn" id="1_r14v1"]
 [ext_resource type="Script" path="res://game/game_manager.gd" id="1_sfun0"]
@@ -6,8 +6,10 @@
 [ext_resource type="Script" path="res://game/camera/player_camera.gd" id="2_rlx17"]
 [ext_resource type="Script" path="res://game/line/collision_line.gd" id="3_puh8u"]
 [ext_resource type="Script" path="res://game/line/checkpoint_collision_line.gd" id="4_2x7bd"]
+[ext_resource type="PackedScene" uid="uid://bylryc276lnbp" path="res://game/area/water.tscn" id="7_qwbl0"]
+[ext_resource type="PackedScene" uid="uid://dlouxwvvx7rmt" path="res://game/area/fire.tscn" id="8_yotx2"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" groups=["game_manager"]]
 script = ExtResource("1_sfun0")
 
 [node name="Player" parent="." instance=ExtResource("1_r14v1")]
@@ -122,3 +124,12 @@ points = PackedVector2Array(2000, -12005, 2000, -9995)
 default_color = Color(0, 0, 0, 1)
 script = ExtResource("4_2x7bd")
 dir = -1
+
+[node name="OtherBits" type="Node2D" parent="."]
+
+[node name="Water" parent="." instance=ExtResource("7_qwbl0")]
+position = Vector2(3986, -1505)
+scale = Vector2(3.62686, 1)
+
+[node name="Fire" parent="." instance=ExtResource("8_yotx2")]
+position = Vector2(8704, -1501)

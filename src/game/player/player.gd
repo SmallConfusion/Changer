@@ -1,20 +1,9 @@
 class_name Player
 extends CharacterBody2D
 
+signal die
+
 enum Animal { BIRD, FISH, PHOENIX, NONE }
-
-const FRICTION := 0.99
-
-const BIRD_GRAVITY := 50.0
-
-const BIRD_IMPULSE_X := 1000.0
-const BIRD_IMPULSE_Y := 2000.0
-
-const FISH_GRAVITY := 30.0
-const FISH_MAX_SPEED := 20000.0
-
-const COYOTE_TIME := 0.1
-const INPUT_COOLDOWN := 0.25
 
 var animal_movements := {
 	Animal.BIRD: _bird_movement,
@@ -34,13 +23,26 @@ var animal_moves := {
 	Animal.PHOENIX: _move_and_bounce,
 }
 
+const FRICTION := 0.99
+const BIRD_WATER_FRICTION := 0.9
+
+const BIRD_GRAVITY := 50.0
+
+const BIRD_IMPULSE_X := 1000.0
+const BIRD_IMPULSE_Y := 2000.0
+
+const FISH_GRAVITY := 30.0
+const FISH_MAX_SPEED := 20000.0
+
+const COYOTE_TIME := 0.1
+const INPUT_COOLDOWN := 0.25
+
 var current_animal := Animal.BIRD
 var next_input := Animal.NONE
 
 var dir := 1
 
 var in_water := false
-var in_fire := false
 
 var input_timer := 0.0
 
@@ -63,7 +65,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _bird_movement() -> void:
-	velocity *= FRICTION
+	velocity *= BIRD_WATER_FRICTION if in_water else FRICTION
 	velocity.y += BIRD_GRAVITY
 
 
@@ -150,8 +152,8 @@ func water_exit() -> void:
 
 
 func fire_enter() -> void:
-	in_fire = true
+	die.emit()
 
 
 func fire_exit() -> void:
-	in_fire = false
+	pass

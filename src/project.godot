@@ -38,6 +38,7 @@ enabled=PackedStringArray("res://addons/gdscript_formatter/plugin.cfg", "res://a
 [global_group]
 
 player="Contains the player"
+game_manager=""
 
 [input]
 

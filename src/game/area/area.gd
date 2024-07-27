@@ -5,8 +5,8 @@ extends Area2D
 
 
 func _ready() -> void:
-	body_entered.connect(_call_player.bind("_entered"))
-	body_exited.connect(_call_player.bind("_exited"))
+	body_entered.connect(_call_player.bind("_enter"))
+	body_exited.connect(_call_player.bind("_exit"))
 
 
 func _call_player(body: Node2D, suffix: String) -> void:
