@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dehxwyaacp45s"]
+[gd_scene load_steps=2 format=3 uid="uid://dehxwyaacp45s"]
+
+[ext_resource type="Script" path="res://menu/license.gd" id="1_6biyg"]
 
 [node name="Attribution" type="Control"]
 layout_mode = 3
@@ -9,7 +11,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 390.0
+offset_right = -390.0
+grow_horizontal = 2
+grow_vertical = 2
 bbcode_enabled = true
+text = "Campfire Crackle 1 by rbirdwise -- [url]https://freesound.org/s/157185/[/url] -- License: Attribution 3.0
+Campfire Crackle 2 by rbirdwise -- [url]https://freesound.org/s/157186/[/url] -- License: Attribution 3.0
+Campfire Crackle 3 by rbirdwise -- [url]https://freesound.org/s/157187/[/url] -- License: Attribution 3.0
+Made with Godot Engine [url]https://godotengine.org/license[/url]"
+script = ExtResource("1_6biyg")
