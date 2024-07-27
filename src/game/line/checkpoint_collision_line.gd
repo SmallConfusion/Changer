@@ -5,6 +5,7 @@ const checkpoint_offset := 200.
 
 ## Ignores collision if this direction == player direction
 @export var dir := 1
+@export var end := false
 
 
 func _ready() -> void:

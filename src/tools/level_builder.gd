@@ -25,17 +25,26 @@ func _build_level() -> void:
 	_add_line(0, extra, 0, -height - extra)
 	_add_line(size, extra, size, -height - extra)
 
-	for i in range(1, floors):
+	for i in range(1, floors + 1):
 		var y = -i * level_height
+
+		var final = i == floors
 
 		if i % 2 == 1:
 			var end = size - door_size
 			_add_line(0, y, end + extra, y)
-			_add_one_way_line(end, y - extra, end, y + level_height + extra, 1)
+			_add_one_way_line(
+				end, y - extra, end, y + level_height + extra, 1, final
+			)
 		else:
 			_add_line(door_size - extra, y, size, y)
 			_add_one_way_line(
-				door_size, y - extra, door_size, y + level_height + extra, -1
+				door_size,
+				y - extra,
+				door_size,
+				y + level_height + extra,
+				-1,
+				final
 			)
 
 
@@ -52,11 +61,12 @@ func _add_line(x: float, y: float, x2: float, y2: float) -> void:
 
 
 func _add_one_way_line(
-	x: float, y: float, x2: float, y2: float, dir: float
+	x: float, y: float, x2: float, y2: float, dir: float, end: bool = false
 ) -> void:
 	var line = CheckpointCollisionLine.new()
 
 	line.dir = dir
+	line.end = end
 
 	line.add_point(Vector2(x, y))
 	line.add_point(Vector2(x2, y2))
