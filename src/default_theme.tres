@@ -2,5 +2,6 @@
 
 [resource]
 Button/font_sizes/font_size = 64
+Label/font_sizes/font_size = 48
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/font_sizes/normal_font_size = 32

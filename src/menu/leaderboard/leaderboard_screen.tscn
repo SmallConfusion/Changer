@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://c46wulb24fxrc"]
+
+[ext_resource type="Script" path="res://menu/leaderboard/leaderboard.gd" id="1_53uds"]
+[ext_resource type="Script" path="res://menu/main_menu/scene_load_button.gd" id="2_m37yr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n8w50"]
+content_margin_left = 64.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+
+[node name="LeaderboardScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+offset_right = 1200.0
+offset_bottom = 2160.0
+script = ExtResource("1_53uds")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/ScrollContainer"]
+custom_minimum_size = Vector2(1200, 2160)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Panel/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/line_spacing = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n8w50")
+text = "Loading..."
+tab_stops = PackedFloat32Array(100)
+
+[node name="TimeLabel" type="Label" parent="Panel/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/line_spacing = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n8w50")
+horizontal_alignment = 2
+
+[node name="SceneLoadButton2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 180.0
+offset_top = 595.0
+offset_right = 1040.0
+offset_bottom = 835.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu"
+script = ExtResource("2_m37yr")
+scene = "res://menu/main_menu/main_menu.tscn"
+should_grab_focus = true
