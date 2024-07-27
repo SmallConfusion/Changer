@@ -12,13 +12,12 @@ extends Node2D
 
 @export var line_width := 10.
 
-var height := level_height * floors
-
 
 func _build_level() -> void:
 	for child in get_children():
 		child.queue_free()
 
+	var height := level_height * floors
 	var extra := line_width / 2
 
 	_add_line(-extra, 0, size + extra, 0)

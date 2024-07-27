@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnu3fstihbbn4"]
+[gd_scene load_steps=6 format=3 uid="uid://cnu3fstihbbn4"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_2hydu"]
 [ext_resource type="Shader" path="res://shaders/pencil.gdshader" id="2_ur5j4"]
 [ext_resource type="Script" path="res://game/player/player_drawer.gd" id="3_ajxuc"]
-[ext_resource type="Script" path="res://game/camera/player_camera.gd" id="4_tph1u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gsm8g"]
 shader = ExtResource("2_ur5j4")
@@ -20,6 +19,3 @@ script = ExtResource("3_ajxuc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_acll0")
-
-[node name="PlayerCamera" type="Camera2D" parent="."]
-script = ExtResource("4_tph1u")

@@ -6,13 +6,19 @@ enum Animal { BIRD, FISH, PHOENIX, NONE }
 var animal_movements := {
 	Animal.BIRD: _bird_movement,
 	Animal.FISH: _fish_movement,
-	Animal.PHOENIX: _phoenix_movement,
+	Animal.PHOENIX: func(): pass,
 }
 
 var animal_actions := {
 	Animal.BIRD: _bird_action,
 	Animal.FISH: _fish_action,
-	Animal.PHOENIX: _phoenix_action,
+	Animal.PHOENIX: func(): pass,
+}
+
+var animal_moves := {
+	Animal.BIRD: _move_and_bounce.bind(Vector2(0.5, 1)),
+	Animal.FISH: _move_and_bounce,
+	Animal.PHOENIX: _move_and_bounce,
 }
 
 const FRICTION := 0.99
@@ -22,7 +28,7 @@ const BIRD_GRAVITY := 50.0
 const BIRD_IMPULSE_X := 1000.0
 const BIRD_IMPULSE_Y := 2000.0
 
-const FISH_GRAVITY := 10.0
+const FISH_GRAVITY := 30.0
 const FISH_MAX_SPEED := 20000.0
 
 const COYOTE_TIME := 0.1
@@ -44,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	if should_action:
 		animal_actions[current_animal].call()
 
-	_move_and_bounce()
+	animal_moves[current_animal].call()
 
 
 func _bird_movement() -> void:
@@ -63,14 +69,6 @@ func _fish_movement() -> void:
 
 func _fish_action() -> void:
 	velocity.x = lerp(velocity.x, FISH_MAX_SPEED * get_direction(), 0.25)
-
-
-func _phoenix_movement() -> void:
-	pass
-
-
-func _phoenix_action() -> void:
-	pass
 
 
 ## Returns whether or not to action
@@ -113,12 +111,12 @@ func _get_current_input() -> Animal:
 	return Animal.NONE
 
 
-func _move_and_bounce() -> void:
+func _move_and_bounce(bounce: Vector2 = Vector2(1, 1)) -> void:
 	move_and_slide()
 
 	if get_slide_collision_count() > 0:
 		var col := get_slide_collision(0)
-		velocity = previous_velocity.bounce(col.get_normal())
+		velocity = previous_velocity.bounce(col.get_normal()) * bounce
 
 	previous_velocity = velocity
 
