@@ -5,13 +5,14 @@ extends Node2D
 	set(x):
 		_build_level()
 
-const size := 10000.
-const level_height := 2000.
-const floors := 10
-const height := level_height * floors
-const door_size := 2000.
+@export var size := 10000.
+@export var level_height := 2000.
+@export var floors := 10
+@export var door_size := 2000.
 
-var line_width := 10.
+@export var line_width := 10.
+
+var height := level_height * floors
 
 
 func _build_level() -> void:
