@@ -8,15 +8,16 @@ extends BasicCamera
 @export var min_speed := 0.0
 @export var max_speed := 20000.0
 @export var zoom_curve := 1.0
-@export var zoom_speed := 1.
+@export var zoom_speed := 1.0
 
 @export var look_ahead_amount := 0.1
-@export var move_speed := 1.
+@export var look_ahead_constant := 300.0
+@export var move_speed := 1.0
 
-@export var min_x := 0.
-@export var max_x := 15000.
-@export var limit := 1500.
-@export var edge_lock := 2500.
+@export var min_x := 0.0
+@export var max_x := 15000.0
+@export var limit := 1500.0
+@export var edge_lock := 2500.0
 
 @export var player: Player
 
@@ -42,7 +43,10 @@ func _process(delta: float) -> void:
 	elif player.global_position.x > max_x - edge_lock:
 		target_position.x = INF
 	else:
-		target_position.x += player.velocity.x * look_ahead_amount
+		target_position.x += (
+			(player.velocity.x + sign(player.velocity.x) * look_ahead_constant)
+			* look_ahead_amount
+		)
 
 	target_position.x = clamp(target_position.x, min_x + limit, max_x - limit)
 

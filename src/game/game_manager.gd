@@ -1,7 +1,7 @@
 class_name Game
 extends Node2D
 
-@onready var player = get_tree().get_first_node_in_group("player")
+@onready var player: Player = get_tree().get_first_node_in_group("player")
 
 var current_checkpoint: CheckpointCollisionLine
 
@@ -28,4 +28,6 @@ func _player_die() -> void:
 	else:
 		player.position = Vector2(1000, -1000)
 		player.dir = 1
-		player.velocity = Vector2.ZERO
+
+	player.velocity = Vector2.ZERO
+	player.current_animal = Player.Animal.BIRD

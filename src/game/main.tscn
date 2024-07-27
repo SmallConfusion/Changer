@@ -17,7 +17,10 @@ motion_mode = 1
 
 [node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(1000, -1000)
+zoom = Vector2(0.8, 0.8)
 script = ExtResource("2_rlx17")
+min_zoom = 0.8
+max_zoom = 0.3
 max_speed = 10000.0
 zoom_curve = 2.0
 zoom_speed = 2.5
@@ -126,11 +129,11 @@ dir = -1
 
 [node name="OtherBits" type="Node2D" parent="."]
 
-[node name="Area" type="Area2D" parent="."]
+[node name="Water" type="Area2D" parent="."]
 script = ExtResource("7_5pj1q")
 type = "water"
 
-[node name="ColorRect" type="ColorRect" parent="Area"]
+[node name="ColorRect" type="ColorRect" parent="Water"]
 z_index = -1
 offset_left = 2200.0
 offset_top = -2000.0
@@ -138,9 +141,31 @@ offset_right = 4200.0
 offset_bottom = -1000.0
 color = Color(0.270179, 0.622196, 0.619168, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Area"]
+[node name="ColorRect2" type="ColorRect" parent="Water"]
 z_index = -1
 offset_left = 3200.0
 offset_top = -1000.0
 offset_right = 4200.0
 color = Color(0.270179, 0.622196, 0.619168, 1)
+
+[node name="Fire" type="Area2D" parent="."]
+script = ExtResource("7_5pj1q")
+
+[node name="ColorRect" type="ColorRect" parent="Fire"]
+z_index = -1
+offset_left = 6400.0
+offset_top = -2000.0
+offset_right = 7200.0
+offset_bottom = -1200.0
+color = Color(1, 0.440811, 0.440811, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Fire"]
+z_index = -1
+offset_left = 10000.0
+offset_top = -800.0
+offset_right = 10800.0
+color = Color(1, 0.440811, 0.440811, 1)
+
+[node name="Acid" type="Area2D" parent="."]
+script = ExtResource("7_5pj1q")
+type = "acid"

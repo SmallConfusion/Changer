@@ -32,7 +32,7 @@ const BIRD_IMPULSE_X := 1000.0
 const BIRD_IMPULSE_Y := 2000.0
 
 const FISH_GRAVITY := 30.0
-const FISH_MAX_SPEED := 20000.0
+const FISH_MAX_SPEED := 10000.0
 
 const COYOTE_TIME := 0.1
 const INPUT_COOLDOWN := 0.25
@@ -164,3 +164,11 @@ func fire_enter() -> void:
 
 func fire_exit() -> void:
 	in_fire = false
+
+
+func acid_enter() -> void:
+	die.emit()
+
+
+func acid_exit() -> void:
+	pass
