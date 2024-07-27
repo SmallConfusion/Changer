@@ -58,3 +58,9 @@ func _process(delta: float) -> void:
 	)
 
 	zoom = lerp(target_zoom, zoom, exp(-zoom_speed * delta))
+
+	global_position.x = clamp(
+		global_position.x,
+		player.global_position.x - 1920 / zoom.x,
+		player.global_position.x + 1920 / zoom.x
+	)

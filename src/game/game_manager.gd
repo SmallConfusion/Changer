@@ -28,3 +28,4 @@ func _player_die() -> void:
 	else:
 		player.position = Vector2(1000, -1000)
 		player.dir = 1
+		player.velocity = Vector2.ZERO
