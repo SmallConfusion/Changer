@@ -1,6 +1,8 @@
 class_name CollisionLine
 extends Line
 
+signal checkpoint_reached
+
 var static_body: StaticBody2D
 
 
@@ -24,3 +26,10 @@ func _ready() -> void:
 	static_body.add_child(collision_shape)
 
 	add_child(static_body)
+
+	var area := Area2D.new()
+
+	area.add_child(collision_shape.duplicate())
+	area.body_entered.connect(checkpoint_reached.emit)
+
+	add_child(area)

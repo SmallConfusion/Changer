@@ -55,7 +55,7 @@ func _add_line(x: float, y: float, x2: float, y2: float) -> void:
 func _add_one_way_line(
 	x: float, y: float, x2: float, y2: float, dir: float
 ) -> void:
-	var line = OneWayCollisionLine.new()
+	var line = CheckpointCollisionLine.new()
 
 	line.dir = dir
 

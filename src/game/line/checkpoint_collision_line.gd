@@ -1,4 +1,4 @@
-class_name OneWayCollisionLine
+class_name CheckpointCollisionLine
 extends CollisionLine
 
 ## Ignores collision if this direction == player direction
