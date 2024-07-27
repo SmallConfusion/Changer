@@ -93,12 +93,13 @@ func _handle_input(delta: float) -> bool:
 
 	var current_input := _get_current_input()
 
-	# TODO: change animal inf coyote time
-
 	if current_input != Animal.NONE and input_timer - COYOTE_TIME <= 0:
 		next_input = current_input
 
-	if input_timer <= 0 and next_input != Animal.NONE:
+	if (
+		(input_timer <= 0 or current_animal != next_input)
+		and next_input != Animal.NONE
+	):
 		input_timer = INPUT_COOLDOWN
 		current_animal = next_input
 		next_input = Animal.NONE
