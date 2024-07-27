@@ -40,7 +40,6 @@ offset_bottom = 195.0
 size_flags_vertical = 0
 theme_override_constants/line_spacing = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n8w50")
-text = "Loading..."
 tab_stops = PackedFloat32Array(100)
 
 [node name="TimeLabel" type="Label" parent="Panel"]
