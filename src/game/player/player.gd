@@ -43,6 +43,7 @@ var next_input := Animal.NONE
 var dir := 1
 
 var in_water := false
+var in_fire := false
 
 var input_timer := 0.0
 
@@ -50,6 +51,9 @@ var previous_velocity: Vector2
 
 
 func _physics_process(delta: float) -> void:
+	if in_fire and current_animal != Animal.PHOENIX:
+		die.emit()
+
 	var should_action := _handle_input(delta)
 
 	$Draw.set_animal(current_animal)
@@ -79,7 +83,8 @@ func _fish_movement() -> void:
 
 
 func _fish_action() -> void:
-	velocity.x = lerp(velocity.x, FISH_MAX_SPEED * get_direction(), 0.25)
+	if in_water:
+		velocity.x = lerp(velocity.x, FISH_MAX_SPEED * get_direction(), 0.25)
 
 
 ## Returns whether or not to action
@@ -87,6 +92,8 @@ func _handle_input(delta: float) -> bool:
 	input_timer -= delta
 
 	var current_input := _get_current_input()
+
+	# TODO: change animal inf coyote time
 
 	if current_input != Animal.NONE and input_timer - COYOTE_TIME <= 0:
 		next_input = current_input
@@ -152,8 +159,8 @@ func water_exit() -> void:
 
 
 func fire_enter() -> void:
-	die.emit()
+	in_fire = true
 
 
 func fire_exit() -> void:
-	pass
+	in_fire = false

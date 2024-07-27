@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmwqtuy0jft8j"]
+[gd_scene load_steps=8 format=3 uid="uid://cmwqtuy0jft8j"]
 
 [ext_resource type="PackedScene" uid="uid://cnu3fstihbbn4" path="res://game/player/player.tscn" id="1_r14v1"]
 [ext_resource type="Script" path="res://game/game_manager.gd" id="1_sfun0"]
@@ -6,8 +6,7 @@
 [ext_resource type="Script" path="res://game/camera/player_camera.gd" id="2_rlx17"]
 [ext_resource type="Script" path="res://game/line/collision_line.gd" id="3_puh8u"]
 [ext_resource type="Script" path="res://game/line/checkpoint_collision_line.gd" id="4_2x7bd"]
-[ext_resource type="PackedScene" uid="uid://bylryc276lnbp" path="res://game/area/water.tscn" id="7_qwbl0"]
-[ext_resource type="PackedScene" uid="uid://dlouxwvvx7rmt" path="res://game/area/fire.tscn" id="8_yotx2"]
+[ext_resource type="Script" path="res://game/area/area.gd" id="7_5pj1q"]
 
 [node name="Game" type="Node2D" groups=["game_manager"]]
 script = ExtResource("1_sfun0")
@@ -127,9 +126,21 @@ dir = -1
 
 [node name="OtherBits" type="Node2D" parent="."]
 
-[node name="Water" parent="." instance=ExtResource("7_qwbl0")]
-position = Vector2(3986, -1505)
-scale = Vector2(3.62686, 1)
+[node name="Area" type="Area2D" parent="."]
+script = ExtResource("7_5pj1q")
+type = "water"
 
-[node name="Fire" parent="." instance=ExtResource("8_yotx2")]
-position = Vector2(8704, -1501)
+[node name="ColorRect" type="ColorRect" parent="Area"]
+z_index = -1
+offset_left = 2200.0
+offset_top = -2000.0
+offset_right = 4200.0
+offset_bottom = -1000.0
+color = Color(0.270179, 0.622196, 0.619168, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Area"]
+z_index = -1
+offset_left = 3200.0
+offset_top = -1000.0
+offset_right = 4200.0
+color = Color(0.270179, 0.622196, 0.619168, 1)
