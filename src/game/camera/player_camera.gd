@@ -28,10 +28,38 @@ func _ready():
 	elif not player:
 		push_error("player not set and parent is not player")
 
+	global_position = _get_target_position()
+	zoom = _get_target_zoom()
+
 
 func _process(delta: float) -> void:
 	super(delta)
 
+	global_position = lerp(
+		_get_target_position(), global_position, exp(-move_speed * delta)
+	)
+
+	zoom = lerp(_get_target_zoom(), zoom, exp(-zoom_speed * delta))
+
+	global_position.x = clamp(
+		global_position.x,
+		player.global_position.x - 1920 / zoom.x,
+		player.global_position.x + 1920 / zoom.x
+	)
+
+
+func _get_target_zoom() -> Vector2:
+	var t := remap(player.get_speed(), min_speed, max_speed, 0, 1)
+	t = clamp(t, 0, 1)
+
+	var target_zoom: Vector2 = (
+		Vector2(1, 1) * lerp(min_zoom, max_zoom, pow(t, zoom_curve))
+	)
+
+	return target_zoom
+
+
+func _get_target_position() -> Vector2:
 	var target_position := player.global_position
 
 	target_position.y = (
@@ -50,21 +78,4 @@ func _process(delta: float) -> void:
 
 	target_position.x = clamp(target_position.x, min_x + limit, max_x - limit)
 
-	global_position = lerp(
-		target_position, global_position, exp(-move_speed * delta)
-	)
-
-	var t := remap(player.get_speed(), min_speed, max_speed, 0, 1)
-	t = clamp(t, 0, 1)
-
-	var target_zoom: Vector2 = (
-		Vector2(1, 1) * lerp(min_zoom, max_zoom, pow(t, zoom_curve))
-	)
-
-	zoom = lerp(target_zoom, zoom, exp(-zoom_speed * delta))
-
-	global_position.x = clamp(
-		global_position.x,
-		player.global_position.x - 1920 / zoom.x,
-		player.global_position.x + 1920 / zoom.x
-	)
+	return target_position
