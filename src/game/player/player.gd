@@ -49,6 +49,8 @@ var input_timer := 0.0
 
 var previous_velocity: Vector2
 
+var inputs: Array[Animal] = []
+
 
 func _physics_process(delta: float) -> void:
 	if in_fire and current_animal != Animal.PHOENIX:
@@ -66,6 +68,26 @@ func _physics_process(delta: float) -> void:
 	animal_moves[current_animal].call()
 
 	$Draw.scale.x = dir
+
+
+func _input(e: InputEvent):
+	if e.is_action_pressed("bird"):
+		inputs.push_front(Animal.BIRD)
+
+	elif e.is_action_pressed("fish"):
+		inputs.push_front(Animal.FISH)
+
+	elif e.is_action_pressed("phoenix"):
+		inputs.push_front(Animal.PHOENIX)
+
+	elif e.is_action_released("bird"):
+		inputs.erase(Animal.BIRD)
+
+	elif e.is_action_released("fish"):
+		inputs.erase(Animal.FISH)
+
+	elif e.is_action_released("phoenix"):
+		inputs.erase(Animal.PHOENIX)
 
 
 func _bird_movement() -> void:
@@ -109,23 +131,8 @@ func _handle_input(delta: float) -> bool:
 
 
 func _get_current_input() -> Animal:
-	if Input.is_action_just_pressed("bird"):
-		return Animal.BIRD
-
-	if Input.is_action_just_pressed("fish"):
-		return Animal.FISH
-
-	if Input.is_action_just_pressed("phoenix"):
-		return Animal.PHOENIX
-
-	if Input.is_action_pressed("bird"):
-		return Animal.BIRD
-
-	if Input.is_action_pressed("fish"):
-		return Animal.FISH
-
-	if Input.is_action_pressed("phoenix"):
-		return Animal.PHOENIX
+	if len(inputs) > 0:
+		return inputs[0]
 
 	return Animal.NONE
 
