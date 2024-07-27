@@ -32,31 +32,22 @@ offset_right = 1200.0
 offset_bottom = 2160.0
 script = ExtResource("1_53uds")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="NameLabel" type="Label" parent="Panel"]
+layout_mode = 2
 offset_left = -3.0
-offset_right = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_scroll_mode = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="Panel/ScrollContainer"]
-custom_minimum_size = Vector2(1200, 2160)
-layout_mode = 2
-
-[node name="NameLabel" type="Label" parent="Panel/ScrollContainer/MarginContainer"]
-layout_mode = 2
+offset_right = 1197.0
+offset_bottom = 195.0
 size_flags_vertical = 0
 theme_override_constants/line_spacing = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n8w50")
 text = "Loading..."
 tab_stops = PackedFloat32Array(100)
 
-[node name="TimeLabel" type="Label" parent="Panel/ScrollContainer/MarginContainer"]
+[node name="TimeLabel" type="Label" parent="Panel"]
 layout_mode = 2
+offset_left = -3.0
+offset_right = 1197.0
+offset_bottom = 195.0
 size_flags_vertical = 0
 theme_override_constants/line_spacing = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n8w50")

@@ -2,41 +2,33 @@ class_name Leaderboard
 extends Panel
 
 const leaderboard_id = "scorejampolymars-main-JXJb"
-@onready var name_label: Label = $ScrollContainer/MarginContainer/NameLabel
-@onready var time_label: Label = $ScrollContainer/MarginContainer/TimeLabel
+@onready var name_label: Label = $NameLabel
+@onready var time_label: Label = $TimeLabel
 
 
 func _ready() -> void:
-	var scores_res := await Leaderboards.get_scores(leaderboard_id, 0, 50)
-
-	_display_scores(scores_res.scores)
+	reload()
 
 
 func _display_scores(scores):
-	name_label.text = ""
-	time_label.text = ""
-
-	var i := 0
 	for score in scores:
-		i += 1
-
-		name_label.text += "%d.\t%s\n" % [i, score.name.replace(" ", "")]
-		time_label.text += "%10.3f\n" % score.score
-
-
-func _generate_testing_scores(count: int) -> Array:
-	randomize()
-
-	var scores := []
-
-	for i in range(count):
-		var score = {"name": "%d" % randi(), "score": randf() * 100.}
-		scores.append(score)
-
-	return scores
+		name_label.text += (
+			"%d.\t%s\n" % [score.rank, score.name.replace(" ", "")]
+		)
+		time_label.text += "%10.3f s\n" % score.score
 
 
 func reload() -> bool:
-	var scores_res := await Leaderboards.get_scores(leaderboard_id, 0, 50)
+	name_label.text = ""
+	time_label.text = ""
+
+	var scores_res := await Leaderboards.get_scores(leaderboard_id, 0, 10)
 	_display_scores(scores_res.scores)
+
+	name_label.text += "...\n"
+	time_label.text += "...\n"
+
+	scores_res = await Leaderboards.get_nearby_scores(leaderboard_id, 5)
+	_display_scores(scores_res.scores)
+
 	return true
