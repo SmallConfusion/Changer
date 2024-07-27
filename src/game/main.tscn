@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmwqtuy0jft8j"]
+[gd_scene load_steps=9 format=3 uid="uid://cmwqtuy0jft8j"]
 
 [ext_resource type="PackedScene" uid="uid://cnu3fstihbbn4" path="res://game/player/player.tscn" id="1_r14v1"]
 [ext_resource type="Script" path="res://game/game_manager.gd" id="1_sfun0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://game/line/collision_line.gd" id="3_puh8u"]
 [ext_resource type="Script" path="res://game/line/checkpoint_collision_line.gd" id="4_2x7bd"]
 [ext_resource type="Script" path="res://game/area/area.gd" id="7_5pj1q"]
+[ext_resource type="AudioStream" uid="uid://4xmjth58cysd" path="res://audio/sfx/fire.ogg" id="8_7lbdf"]
 
 [node name="Game" type="Node2D" groups=["game_manager"]]
 script = ExtResource("1_sfun0")
@@ -181,3 +182,9 @@ color = Color(1, 0.440811, 0.440811, 1)
 [node name="Acid" type="Area2D" parent="."]
 script = ExtResource("7_5pj1q")
 type = "acid"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_7lbdf")
+volume_db = 12.0
+autoplay = true
+bus = &"Sfx"
