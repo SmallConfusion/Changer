@@ -7,7 +7,7 @@ func _ready() -> void:
 	text = ""
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var time = game.get_current_time()
 	var checkpoint = game.get_last_checkpoint_time()
 

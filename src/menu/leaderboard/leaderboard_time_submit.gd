@@ -17,7 +17,7 @@ func _ready() -> void:
 func _submit_time() -> void:
 	var text = line_edit.text
 
-	if text:
+	if text and LeaderboardGlobal.time > 0:
 		await Leaderboards.post_guest_score(
 			"scorejampolymars-main-JXJb", LeaderboardGlobal.time, text
 		)
