@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmwqtuy0jft8j"]
+[gd_scene load_steps=10 format=3 uid="uid://cmwqtuy0jft8j"]
 
 [ext_resource type="PackedScene" uid="uid://cnu3fstihbbn4" path="res://game/player/player.tscn" id="1_r14v1"]
 [ext_resource type="Script" path="res://game/game_manager.gd" id="1_sfun0"]
@@ -9,11 +9,6 @@
 [ext_resource type="Script" path="res://game/fire_rect.gd" id="4_li3n3"]
 [ext_resource type="Script" path="res://game/area/area.gd" id="7_5pj1q"]
 [ext_resource type="AudioStream" uid="uid://4xmjth58cysd" path="res://audio/sfx/ambient/fire.ogg" id="8_7lbdf"]
-[ext_resource type="AudioStream" uid="uid://hyr553karhlh" path="res://audio/sfx/ding.wav" id="10_ydlif"]
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_26e6s"]
-streams_count = 1
-stream_0/stream = ExtResource("10_ydlif")
 
 [node name="Game" type="Node2D" groups=["game_manager"]]
 script = ExtResource("1_sfun0")
@@ -202,9 +197,4 @@ type = "acid"
 stream = ExtResource("8_7lbdf")
 volume_db = -12.0
 autoplay = true
-bus = &"Sfx"
-
-[node name="CheckpointPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_26e6s")
-volume_db = 3.0
 bus = &"Sfx"
