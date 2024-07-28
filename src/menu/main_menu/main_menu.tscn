@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5jp5vabay124"]
+[gd_scene load_steps=5 format=3 uid="uid://c5jp5vabay124"]
 
 [ext_resource type="Script" path="res://menu/main_menu/scene_load_button.gd" id="1_wo4g1"]
+[ext_resource type="Script" path="res://menu/main_menu/splash_screen.gd" id="2_2dls0"]
+[ext_resource type="Texture2D" uid="uid://dpkjxfuqw4icp" path="res://menu/main_menu/logo w text.svg" id="2_qh0v6"]
 
 [sub_resource type="GDScript" id="GDScript_ow64i"]
 script/source = "extends Button
@@ -20,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_vertical_guides_ = [-675.0]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -103,3 +106,60 @@ grow_vertical = 0
 text = "Licenses"
 script = ExtResource("1_wo4g1")
 scene = "res://menu/license/attribution.tscn"
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+position = Vector2(1920, 1080)
+script = ExtResource("2_2dls0")
+
+[node name="Control" type="Control" parent="CanvasGroup"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasGroup/Control"]
+custom_minimum_size = Vector2(3840, 2160)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasGroup/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1479.0
+offset_top = -320.0
+offset_right = 1481.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qh0v6")
+
+[node name="Label" type="Label" parent="CanvasGroup/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -514.0
+offset_top = 745.0
+offset_right = 514.0
+offset_bottom = 924.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "Made for the
+PolyMars x ScoreSpace SpeedJam"
+horizontal_alignment = 1
+vertical_alignment = 1
