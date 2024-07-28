@@ -76,6 +76,7 @@ func _physics_process(delta: float) -> void:
 
 	if current_animal != previous_animal:
 		velocity *= CHANGE_FRICTION
+		$ChangePlayer.play()
 
 	$Draw.scale.x = dir
 

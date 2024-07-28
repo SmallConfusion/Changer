@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cnu3fstihbbn4"]
+[gd_scene load_steps=44 format=3 uid="uid://cnu3fstihbbn4"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_2hydu"]
 [ext_resource type="Shader" path="res://shaders/pencil.gdshader" id="2_ur5j4"]
@@ -30,6 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://bcembishnm3so" path="res://audio/sfx/swim/water_swim_1.wav" id="28_dlr4j"]
 [ext_resource type="AudioStream" uid="uid://dt5prrgvadepv" path="res://audio/sfx/swim/water_swim_2.wav" id="29_y2sog"]
 [ext_resource type="AudioStream" uid="uid://v4nqoo3q5yuc" path="res://audio/sfx/swim/water_swim_3.wav" id="30_xtgay"]
+[ext_resource type="AudioStream" uid="uid://cjp8n5yitt85t" path="res://audio/sfx/click.wav" id="31_fvqux"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gsm8g"]
 shader = ExtResource("2_ur5j4")
@@ -110,6 +111,12 @@ stream_1/stream = ExtResource("29_y2sog")
 stream_2/stream = ExtResource("30_xtgay")
 stream_2/weight = 0.755
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yw3e0"]
+random_pitch = 1.1
+random_volume_offset_db = 0.5
+streams_count = 1
+stream_0/stream = ExtResource("31_fvqux")
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_2hydu")
 
@@ -151,18 +158,27 @@ bus = &"Sfx"
 [node name="FlapPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_53y46")
 max_polyphony = 32
+bus = &"Sfx"
 
 [node name="WaterFlapPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_acaw4")
 volume_db = -8.0
 max_polyphony = 32
+bus = &"Sfx"
 
 [node name="WaterEnterPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_sl3yx")
 volume_db = -5.0
 max_polyphony = 32
+bus = &"Sfx"
 
 [node name="WaterSwimPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_q0lgy")
 volume_db = -5.0
 max_polyphony = 32
+bus = &"Sfx"
+
+[node name="ChangePlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_yw3e0")
+volume_db = 8.0
+bus = &"Sfx"
