@@ -18,10 +18,19 @@ func _ready() -> void:
 	start_time = Time.get_ticks_msec()
 
 
+func _process(delta: float) -> void:
+	var diff: float = (
+		$FireRect.position.y - floor(player.position.y / 2000) * 2000
+	)
+	var volume: float = clamp(remap(diff, 1900, 4000, -5, -20), -20, -5)
+	$FirePlayer.volume_db = volume
+
+
 func _checkpoint_reached(checkpoint: CheckpointCollisionLine) -> void:
 	if current_checkpoint == checkpoint:
 		return
 
+	$CheckpointPlayer.play()
 	current_checkpoint = checkpoint
 
 	if checkpoint.end:

@@ -202,7 +202,6 @@ func water_enter() -> void:
 
 func water_exit() -> void:
 	in_water = false
-	$WaterEnterPlayer.play()
 
 
 func fire_enter() -> void:

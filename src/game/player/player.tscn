@@ -154,12 +154,15 @@ max_polyphony = 32
 
 [node name="WaterFlapPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_acaw4")
+volume_db = -6.505
 max_polyphony = 32
 
 [node name="WaterEnterPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_sl3yx")
+volume_db = -3.0
 max_polyphony = 32
 
 [node name="WaterSwimPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_q0lgy")
+volume_db = -3.0
 max_polyphony = 32
