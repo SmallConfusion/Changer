@@ -108,7 +108,11 @@ func _bird_movement() -> void:
 
 
 func _bird_action() -> void:
-	$FlapPlayer.play()
+	if in_water:
+		$WaterFlapPlayer.play()
+	else:
+		$FlapPlayer.play()
+
 	velocity.x += BIRD_IMPULSE_X * get_direction()
 	velocity.y = min(-BIRD_IMPULSE_Y, velocity.y - BIRD_IMPULSE_Y)
 
@@ -192,10 +196,12 @@ func get_speed() -> float:
 
 func water_enter() -> void:
 	in_water = true
+	$WaterEnterPlayer.play()
 
 
 func water_exit() -> void:
 	in_water = false
+	$WaterEnterPlayer.play()
 
 
 func fire_enter() -> void:
