@@ -108,6 +108,7 @@ func _bird_movement() -> void:
 
 
 func _bird_action() -> void:
+	$FlapPlayer.play()
 	velocity.x += BIRD_IMPULSE_X * get_direction()
 	velocity.y = min(-BIRD_IMPULSE_Y, velocity.y - BIRD_IMPULSE_Y)
 

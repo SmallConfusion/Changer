@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cnu3fstihbbn4"]
+[gd_scene load_steps=30 format=3 uid="uid://cnu3fstihbbn4"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_2hydu"]
 [ext_resource type="Shader" path="res://shaders/pencil.gdshader" id="2_ur5j4"]
@@ -18,6 +18,9 @@
 [ext_resource type="AudioStream" uid="uid://4hp0fflsc5xe" path="res://audio/sfx/wall_hit/medium/wall_hit_9.wav" id="13_6nlrn"]
 [ext_resource type="AudioStream" uid="uid://cbx5khemricv3" path="res://audio/sfx/death/fire.ogg" id="17_jsfda"]
 [ext_resource type="AudioStream" uid="uid://dll2lr7l6tdeb" path="res://audio/sfx/death/acid.ogg" id="18_pkf46"]
+[ext_resource type="AudioStream" uid="uid://drfku73laouhk" path="res://audio/sfx/flap/flap_1.wav" id="19_vjdwv"]
+[ext_resource type="AudioStream" uid="uid://cstp3brjrnmck" path="res://audio/sfx/flap/flap_2.wav" id="20_cmopn"]
+[ext_resource type="AudioStream" uid="uid://cbpr6odp7jumm" path="res://audio/sfx/flap/flap_3.wav" id="21_7gy6b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gsm8g"]
 shader = ExtResource("2_ur5j4")
@@ -63,6 +66,15 @@ random_pitch = 1.1
 streams_count = 1
 stream_0/stream = ExtResource("18_pkf46")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_53y46"]
+random_pitch = 1.1
+random_volume_offset_db = 0.5
+streams_count = 3
+stream_0/stream = ExtResource("19_vjdwv")
+stream_1/stream = ExtResource("20_cmopn")
+stream_1/weight = 0.523
+stream_2/stream = ExtResource("21_7gy6b")
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_2hydu")
 
@@ -94,7 +106,12 @@ bus = &"Sfx"
 [node name="FirePlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_53hnh")
 max_polyphony = 32
+bus = &"Sfx"
 
 [node name="AcidPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_6bxp6")
 max_polyphony = 32
+bus = &"Sfx"
+
+[node name="FlapPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_53y46")
