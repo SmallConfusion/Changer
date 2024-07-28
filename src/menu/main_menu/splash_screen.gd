@@ -4,7 +4,7 @@ extends CanvasGroup
 
 
 func _ready() -> void:
-	if not play_in_editor and OS.has_feature("Engine"):
+	if OS.has_feature("editor") and not play_in_editor:
 		visible = false
 	else:
 		await get_tree().create_timer(3).timeout

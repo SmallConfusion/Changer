@@ -110,6 +110,7 @@ scene = "res://menu/license/attribution.tscn"
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 position = Vector2(1920, 1080)
 script = ExtResource("2_2dls0")
+play_in_editor = false
 
 [node name="Control" type="Control" parent="CanvasGroup"]
 layout_mode = 3
