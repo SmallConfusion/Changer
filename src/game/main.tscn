@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://game/line/checkpoint_collision_line.gd" id="4_2x7bd"]
 [ext_resource type="Script" path="res://game/fire_rect.gd" id="4_li3n3"]
 [ext_resource type="Script" path="res://game/area/area.gd" id="7_5pj1q"]
-[ext_resource type="AudioStream" uid="uid://4xmjth58cysd" path="res://audio/sfx/fire.ogg" id="8_7lbdf"]
+[ext_resource type="AudioStream" uid="uid://4xmjth58cysd" path="res://audio/sfx/ambient/fire.ogg" id="8_7lbdf"]
 
 [node name="Game" type="Node2D" groups=["game_manager"]]
 script = ExtResource("1_sfun0")

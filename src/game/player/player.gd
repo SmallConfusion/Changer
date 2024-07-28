@@ -60,6 +60,7 @@ var inputs: Array[Animal] = []
 
 func _physics_process(delta: float) -> void:
 	if in_fire and current_animal != Animal.PHOENIX:
+		$FirePlayer.play()
 		die.emit()
 
 	var should_action := _handle_input(delta)
@@ -168,6 +169,15 @@ func _move_and_bounce(bounce: Vector2 = Vector2(1, 1)) -> void:
 		if abs(normal.x) > 0.5:
 			dir = sign(normal.x)
 
+		var force := (velocity - previous_velocity).length()
+
+		if force > 10000:
+			$HardPlayer.play()
+		elif force > 3000:
+			$MediumPlayer.play()
+		elif force > 75:
+			$SoftPlayer.play()
+
 	previous_velocity = velocity
 
 
@@ -196,6 +206,7 @@ func fire_exit() -> void:
 
 
 func acid_enter() -> void:
+	$AcidPlayer.play()
 	die.emit()
 
 
