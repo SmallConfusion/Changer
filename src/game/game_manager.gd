@@ -4,6 +4,7 @@ extends Node2D
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 
 var current_checkpoint: CheckpointCollisionLine
+var last_checkpoint_time := -1.0
 
 var start_time := 0.0
 
@@ -29,7 +30,7 @@ func _checkpoint_reached(checkpoint: CheckpointCollisionLine) -> void:
 		return
 
 	GlobalSounds.play("Checkpoint")
-
+	last_checkpoint_time = Time.get_ticks_msec() - start_time
 	current_checkpoint = checkpoint
 
 	if checkpoint.end:
@@ -62,3 +63,7 @@ func _player_die() -> void:
 
 func get_current_time() -> float:
 	return (Time.get_ticks_msec() - start_time) / 1000.
+
+
+func get_last_checkpoint_time() -> float:
+	return last_checkpoint_time / 1000.

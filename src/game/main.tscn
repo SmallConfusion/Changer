@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmwqtuy0jft8j"]
+[gd_scene load_steps=11 format=3 uid="uid://cmwqtuy0jft8j"]
 
 [ext_resource type="PackedScene" uid="uid://cnu3fstihbbn4" path="res://game/player/player.tscn" id="1_r14v1"]
 [ext_resource type="Script" path="res://game/game_manager.gd" id="1_sfun0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://game/fire_rect.gd" id="4_li3n3"]
 [ext_resource type="Script" path="res://game/area/area.gd" id="7_5pj1q"]
 [ext_resource type="AudioStream" uid="uid://4xmjth58cysd" path="res://audio/sfx/ambient/fire.ogg" id="8_7lbdf"]
+[ext_resource type="Script" path="res://game/timer.gd" id="10_ujoi4"]
 
 [node name="Game" type="Node2D" groups=["game_manager"]]
 script = ExtResource("1_sfun0")
@@ -518,3 +519,23 @@ stream = ExtResource("8_7lbdf")
 volume_db = -12.0
 autoplay = true
 bus = &"Sfx"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Label" parent="CanvasLayer/Control"]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 520.0
+offset_bottom = 187.0
+text = "Time:	245.245
+Checkpoint:	5.345"
+tab_stops = PackedFloat32Array(350)
+script = ExtResource("10_ujoi4")
