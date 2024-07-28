@@ -7,6 +7,7 @@ func _ready() -> void:
 	if OS.has_feature("editor") and not play_in_editor:
 		visible = false
 	else:
+		visible = true
 		await get_tree().create_timer(3).timeout
 
 		var tween = get_tree().create_tween()
