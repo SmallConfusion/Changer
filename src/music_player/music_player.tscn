@@ -9,4 +9,3 @@ volume_db = -80.0
 autoplay = true
 bus = &"Music"
 script = ExtResource("2_mkhn1")
-play_in_editor = true

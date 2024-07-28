@@ -193,7 +193,7 @@ func _move_and_bounce(bounce: Vector2 = Vector2(1, 1)) -> void:
 			$HardPlayer.play()
 		elif force > 3000:
 			$MediumPlayer.play()
-		elif force > 75:
+		elif force > 100:
 			$SoftPlayer.play()
 
 	previous_velocity = velocity

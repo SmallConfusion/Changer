@@ -33,8 +33,6 @@ func _ready():
 
 
 func _process(delta: float) -> void:
-	super(delta)
-
 	global_position = lerp(
 		_get_target_position(), global_position, exp(-move_speed * delta)
 	)
@@ -46,7 +44,8 @@ func _process(delta: float) -> void:
 		player.global_position.x - 1920 / zoom.x,
 		player.global_position.x + 1920 / zoom.x
 	)
-
+	
+	super(delta)
 
 func _get_target_zoom() -> Vector2:
 	var t := remap(player.get_speed(), min_speed, max_speed, 0, 1)

@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c7ycrly838df"]
+
+[ext_resource type="Shader" path="res://shaders/pencil.gdshader" id="1_f8r35"]
+
+[resource]
+shader = ExtResource("1_f8r35")

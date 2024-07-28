@@ -29,8 +29,8 @@ GlobalSounds="*res://audio/global_sounds.tscn"
 window/size/viewport_width=3840
 window/size/viewport_height=2160
 window/size/always_on_top=true
-window/size/window_width_override=1920
-window/size/window_height_override=1080
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/size/always_on_top.release=false
 
@@ -102,9 +102,13 @@ viewport/hdr_2d=true
 
 camera_zoom={
 "type": "float",
-"value": 0.0
+"value": 1.0
 }
 camera_offset={
 "type": "vec2",
 "value": Vector2(0, 0)
+}
+flicker_time={
+"type": "float",
+"value": 1.2
 }
