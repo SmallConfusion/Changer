@@ -50,13 +50,14 @@ func _end_game():
 func _player_die() -> void:
 	if current_checkpoint:
 		player.position = current_checkpoint.get_checkpoint_position()
-		player.dir = current_checkpoint.dir
+		player.dir = -current_checkpoint.dir
 	else:
 		player.position = Vector2(1000, -1000)
 		player.dir = 1
 
 	player.velocity = Vector2.ZERO
 	player.current_animal = Player.Animal.BIRD
+	player.previous_animal = Player.Animal.BIRD
 
 
 func get_current_time() -> float:

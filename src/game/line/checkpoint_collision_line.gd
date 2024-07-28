@@ -1,7 +1,7 @@
 class_name CheckpointCollisionLine
 extends CollisionLine
 
-const checkpoint_offset := 200.
+const CHECKPOINT_OFFSET := 2000.
 
 ## Ignores collision if this direction == player direction
 @export var dir := 1
@@ -47,4 +47,4 @@ func get_checkpoint_position() -> Vector2:
 		get_point_position(0), get_point_position(1), 0.5
 	)
 
-	return middle + checkpoint_offset * Vector2(dir, 0)
+	return middle + Vector2(0, -CHECKPOINT_OFFSET)
