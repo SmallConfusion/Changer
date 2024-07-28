@@ -25,6 +25,11 @@ func _process(_delta: float) -> void:
 	$FirePlayer.volume_db = volume
 
 
+func _input(e: InputEvent) -> void:
+	if e.is_action_pressed("restart"):
+		get_tree().reload_current_scene()
+
+
 func _checkpoint_reached(checkpoint: CheckpointCollisionLine) -> void:
 	if current_checkpoint == checkpoint:
 		return

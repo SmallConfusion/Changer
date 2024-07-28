@@ -58,6 +58,17 @@ var previous_velocity: Vector2
 var inputs: Array[Animal] = []
 
 
+func _ready() -> void:
+	if Input.is_action_pressed("bird"):
+		inputs.push_back(Animal.BIRD)
+
+	if Input.is_action_pressed("fish"):
+		inputs.push_back(Animal.FISH)
+
+	if Input.is_action_pressed("phoenix"):
+		inputs.push_back(Animal.PHOENIX)
+
+
 func _physics_process(delta: float) -> void:
 	if in_fire and current_animal != Animal.PHOENIX:
 		$FirePlayer.play()
