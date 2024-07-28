@@ -18,7 +18,7 @@ func _ready() -> void:
 	start_time = Time.get_ticks_msec()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var diff: float = $FireRect.position.y - $PlayerCamera.position.y
 	var volume: float = clamp(remap(diff, 700, 3000, -5, -20), -20, -5)
 	$FirePlayer.volume_db = volume
