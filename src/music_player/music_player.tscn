@@ -8,3 +8,4 @@ stream = ExtResource("1_lm1j1")
 autoplay = true
 bus = &"Music"
 script = ExtResource("2_mkhn1")
+play_in_editor = true

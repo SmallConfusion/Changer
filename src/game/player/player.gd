@@ -124,6 +124,7 @@ func _fish_movement() -> void:
 func _fish_action() -> void:
 	if in_water:
 		velocity.x = lerp(velocity.x, FISH_MAX_SPEED * get_direction(), 0.25)
+		$WaterSwimPlayer.play()
 	else:
 		input_timer = -1
 
