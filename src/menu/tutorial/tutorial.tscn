@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvlscyr6dkhpt"]
+
+[ext_resource type="Script" path="res://menu/main_menu/scene_load_button.gd" id="1_forsb"]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1094.0
+offset_top = 50.0
+offset_right = 2746.0
+offset_bottom = 2108.0
+bbcode_enabled = true
+text = "C or Left Arrow: Bird
+X or Up Arrow: Fish
+Z or Right Arrow: Phoenix
+
+[center]--- Figure the rest out yourself or continue reading ---[/center]
+
+Bird: The bird flaps, moving up and forward.
+
+Fish: The fish has no air or water friction, and reduced gravity. It cannot move out of the water, but in water it gains a lot of forward speed.
+
+Phoenix: The phoenix cannot change its direction, but friction, gravity, and fire does not affect it.
+
+Red Fire Blocks: Kills you, unless you are the phoenix.
+
+Green Acid Blocks: Kill you.
+
+Blue Water Blocks: Affects bird friction and allows fish to move."
+
+[node name="SceneLoadButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -430.0
+offset_top = 745.0
+offset_right = 430.0
+offset_bottom = 985.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu"
+script = ExtResource("1_forsb")
+scene = "res://menu/main_menu/main_menu.tscn"
+should_grab_focus = true
