@@ -38,7 +38,7 @@ offset_right = 3840.0
 offset_bottom = 650.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 256
-text = "Game"
+text = "Changer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
