@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cnu3fstihbbn4"]
+[gd_scene load_steps=46 format=3 uid="uid://cnu3fstihbbn4"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_2hydu"]
 [ext_resource type="Shader" path="res://shaders/pencil.gdshader" id="2_ur5j4"]
@@ -31,6 +31,19 @@
 [ext_resource type="AudioStream" uid="uid://dt5prrgvadepv" path="res://audio/sfx/swim/water_swim_2.wav" id="29_y2sog"]
 [ext_resource type="AudioStream" uid="uid://v4nqoo3q5yuc" path="res://audio/sfx/swim/water_swim_3.wav" id="30_xtgay"]
 [ext_resource type="AudioStream" uid="uid://cjp8n5yitt85t" path="res://audio/sfx/click.wav" id="31_fvqux"]
+
+[sub_resource type="Gradient" id="Gradient_6rijx"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 0.647059, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gxis8"]
+gradient = SubResource("Gradient_6rijx")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gsm8g"]
 shader = ExtResource("2_ur5j4")
@@ -119,6 +132,9 @@ stream_0/stream = ExtResource("31_fvqux")
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_2hydu")
+
+[node name="ViewSprite" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_gxis8")
 
 [node name="Draw" type="Node2D" parent="."]
 material = SubResource("ShaderMaterial_gsm8g")
