@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmwqtuy0jft8j"]
+[gd_scene load_steps=13 format=3 uid="uid://cmwqtuy0jft8j"]
 
 [ext_resource type="PackedScene" uid="uid://cnu3fstihbbn4" path="res://game/player/player.tscn" id="1_r14v1"]
 [ext_resource type="Script" path="res://game/game_manager.gd" id="1_sfun0"]
@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://c7ycrly838df" path="res://shaders/materials/pencil.tres" id="6_h4fct"]
 [ext_resource type="Script" path="res://game/area/area.gd" id="7_5pj1q"]
 [ext_resource type="AudioStream" uid="uid://4xmjth58cysd" path="res://audio/sfx/ambient/fire.ogg" id="8_7lbdf"]
+[ext_resource type="Material" uid="uid://d2qijo4hkddh3" path="res://shaders/materials/marker_area.tres" id="10_akl8q"]
 [ext_resource type="Script" path="res://game/timer.gd" id="10_ujoi4"]
 
 [node name="Game" type="Node2D" groups=["game_manager"]]
@@ -160,268 +161,319 @@ type = "water"
 
 [node name="ColorRect" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 2400.0
 offset_top = -2000.0
 offset_right = 4400.0
 offset_bottom = -1000.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 2900.0
 offset_top = -6000.0
 offset_right = 3700.0
 offset_bottom = -5000.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 5700.0
 offset_top = -5000.0
 offset_right = 6500.0
 offset_bottom = -4000.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 8500.0
 offset_top = -6000.0
 offset_right = 9300.0
 offset_bottom = -5000.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="ColorRect7" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 8500.0
 offset_top = -7400.0
 offset_right = 9300.0
 offset_bottom = -6600.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="ColorRect8" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 5700.0
 offset_top = -6400.0
 offset_right = 6500.0
 offset_bottom = -6000.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="ColorRect9" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 5700.0
 offset_top = -8000.0
 offset_right = 6500.0
 offset_bottom = -7600.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="ColorRect10" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 5600.0
 offset_top = -9400.0
 offset_right = 9400.0
 offset_bottom = -8600.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="ColorRect11" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 2900.0
 offset_top = -12000.0
 offset_right = 8100.0
 offset_bottom = -11400.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="ColorRect13" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 3100.0
 offset_top = -14000.0
 offset_right = 4700.0
 offset_bottom = -12000.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="ColorRect14" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 4900.0
 offset_top = -14000.0
 offset_right = 6500.0
 offset_bottom = -12000.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="ColorRect15" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 6700.0
 offset_top = -14000.0
 offset_right = 8300.0
 offset_bottom = -12000.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="ColorRect16" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 8500.0
 offset_top = -14000.0
 offset_right = 10100.0
 offset_bottom = -12000.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="ColorRect6" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 11300.0
 offset_top = -5000.0
 offset_right = 12100.0
 offset_bottom = -4000.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="Water"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 3400.0
 offset_top = -1000.0
 offset_right = 4400.0
-color = Color(0.270179, 0.622196, 0.619168, 1)
+color = Color(0.331553, 0.296128, 1, 1)
 
 [node name="Fire" type="Area2D" parent="."]
 script = ExtResource("7_5pj1q")
 
 [node name="ColorRect" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 6600.0
 offset_top = -2000.0
 offset_right = 7400.0
 offset_bottom = -1200.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect4" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 3600.0
 offset_top = -4000.0
 offset_right = 4400.0
 offset_bottom = -2000.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect5" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 2900.0
 offset_top = -5000.0
 offset_right = 3700.0
 offset_bottom = -4000.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect9" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 2900.0
 offset_top = -8600.0
 offset_right = 12100.0
 offset_bottom = -8000.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect10" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 2900.0
 offset_top = -10000.0
 offset_right = 12100.0
 offset_bottom = -9400.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect11" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 2900.0
 offset_top = -9400.0
 offset_right = 5600.0
 offset_bottom = -8600.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect12" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 9400.0
 offset_top = -9400.0
 offset_right = 12100.0
 offset_bottom = -8600.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect13" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 9600.0
 offset_top = -12000.0
 offset_right = 9800.0
 offset_bottom = -10000.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect14" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 2900.0
 offset_top = -14000.0
 offset_right = 3100.0
 offset_bottom = -12000.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect15" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 4700.0
 offset_top = -14000.0
 offset_right = 4900.0
 offset_bottom = -12000.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect16" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 6500.0
 offset_top = -14000.0
 offset_right = 6700.0
 offset_bottom = -12000.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect17" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 8300.0
 offset_top = -14000.0
 offset_right = 8500.0
 offset_bottom = -12000.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect18" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 10100.0
 offset_top = -14000.0
 offset_right = 10300.0
 offset_bottom = -12000.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect6" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 5700.0
 offset_top = -6000.0
 offset_right = 6500.0
 offset_bottom = -5000.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect7" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 8500.0
 offset_top = -5000.0
 offset_right = 9300.0
 offset_bottom = -4000.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect8" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 11300.0
 offset_top = -6000.0
 offset_right = 12100.0
 offset_bottom = -5000.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect3" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 10000.0
 offset_top = -4000.0
 offset_right = 10800.0
 offset_bottom = -2000.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="Fire"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 10000.0
 offset_top = -800.0
 offset_right = 10800.0
 color = Color(1, 0.440811, 0.440811, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Acid" type="Area2D" parent="."]
 script = ExtResource("7_5pj1q")
@@ -429,6 +481,7 @@ type = "acid"
 
 [node name="ColorRect" type="ColorRect" parent="Acid"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 6600.0
 offset_top = -2800.0
 offset_right = 7400.0
@@ -437,6 +490,7 @@ color = Color(0.388199, 1, 0.757834, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="Acid"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 11300.0
 offset_top = -6600.0
 offset_right = 12100.0
@@ -445,6 +499,7 @@ color = Color(0.388199, 1, 0.757834, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="Acid"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 11300.0
 offset_top = -8000.0
 offset_right = 12100.0
@@ -453,6 +508,7 @@ color = Color(0.388199, 1, 0.757834, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="Acid"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 8500.0
 offset_top = -6600.0
 offset_right = 9300.0
@@ -461,6 +517,7 @@ color = Color(0.388199, 1, 0.757834, 1)
 
 [node name="ColorRect7" type="ColorRect" parent="Acid"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 2900.0
 offset_top = -6400.0
 offset_right = 3700.0
@@ -469,6 +526,7 @@ color = Color(0.388199, 1, 0.757834, 1)
 
 [node name="ColorRect8" type="ColorRect" parent="Acid"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 2900.0
 offset_top = -8000.0
 offset_right = 3700.0
@@ -477,6 +535,7 @@ color = Color(0.388199, 1, 0.757834, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="Acid"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 8500.0
 offset_top = -8000.0
 offset_right = 9300.0
@@ -485,6 +544,7 @@ color = Color(0.388199, 1, 0.757834, 1)
 
 [node name="ColorRect6" type="ColorRect" parent="Acid"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 11300.0
 offset_top = -11400.0
 offset_right = 12100.0
@@ -493,6 +553,7 @@ color = Color(0.388199, 1, 0.757834, 1)
 
 [node name="ColorRect9" type="ColorRect" parent="Acid"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 13200.0
 offset_top = -14000.0
 offset_right = 14000.0
@@ -501,6 +562,7 @@ color = Color(0.388199, 1, 0.757834, 1)
 
 [node name="ColorRect11" type="ColorRect" parent="Acid"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 13200.0
 offset_top = -12600.0
 offset_right = 14000.0
@@ -509,6 +571,7 @@ color = Color(0.388199, 1, 0.757834, 1)
 
 [node name="ColorRect10" type="ColorRect" parent="Acid"]
 z_index = -1
+material = ExtResource("10_akl8q")
 offset_left = 7300.0
 offset_top = -11400.0
 offset_right = 8100.0

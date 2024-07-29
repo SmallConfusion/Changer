@@ -12,7 +12,7 @@ void fragment() {
 	fnl_state state = fnlCreateState(8249);
 	state.frequency = 350.;
 	
-	vec2 uv = SCREEN_UV / camera_zoom + camera_offset / vec2(3840, 2160);
+	vec2 uv = SCREEN_UV / camera_zoom + camera_offset / vec2(3840, 2160) + camera_zoom;
 	uv = uv / (SCREEN_PIXEL_SIZE / SCREEN_PIXEL_SIZE.x);
 	
 	float tz = mod(floor(TIME / flicker_time), 14285.24994);
