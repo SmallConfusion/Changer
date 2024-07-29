@@ -1,7 +1,6 @@
-[gd_scene load_steps=46 format=3 uid="uid://cnu3fstihbbn4"]
+[gd_scene load_steps=44 format=3 uid="uid://cnu3fstihbbn4"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_2hydu"]
-[ext_resource type="Shader" path="res://shaders/pencil.gdshader" id="2_ur5j4"]
 [ext_resource type="Script" path="res://game/player/player_drawer.gd" id="3_ajxuc"]
 [ext_resource type="AudioStream" uid="uid://bornw8ueb52w7" path="res://audio/sfx/wall_hit/hard/wall_hit_2.wav" id="4_jrmap"]
 [ext_resource type="AudioStream" uid="uid://voebwy5n2clu" path="res://audio/sfx/wall_hit/soft/wall_hit_7.wav" id="4_v13wf"]
@@ -44,9 +43,6 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 metadata/_snap_enabled = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gsm8g"]
-shader = ExtResource("2_ur5j4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6e6j"]
 size = Vector2(70, 70)
@@ -139,7 +135,6 @@ texture = SubResource("GradientTexture2D_gxis8")
 
 [node name="Draw" type="Node2D" parent="."]
 z_index = 20
-material = SubResource("ShaderMaterial_gsm8g")
 script = ExtResource("3_ajxuc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

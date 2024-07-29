@@ -23,7 +23,7 @@ float fire(vec2 uv) {
 	sparks = step(0.8, sparks);
 
 	sparks *= step(0.01, larger);
-	
+
 	sparks *= texture(noise_texture, uv * 10. + vec2(0.2, 0.2) * TIME).r;
 	sparks *= step(texture(noise_texture, uv + vec2(0.02, 0.02) * TIME).r, 0.5);
 
@@ -32,14 +32,14 @@ float fire(vec2 uv) {
 
 void fragment() {
 	vec4 c = texture(screen_texture, SCREEN_UV);
-	
+
 	vec2 uv = UV;
-	
+
 	float black = blackened(uv + vec2(0, -0.01));
-	
+
 	c.rgb *= clamp(black * 1.4, 0.1, 1);
 
 	c.r = mix(c.r, 1., fire(uv + vec2(0, 0.003)));
-	
+
 	COLOR = c;
 }
