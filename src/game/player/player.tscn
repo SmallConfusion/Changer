@@ -134,9 +134,11 @@ stream_0/stream = ExtResource("31_fvqux")
 script = ExtResource("1_2hydu")
 
 [node name="ViewSprite" type="Sprite2D" parent="."]
+z_index = 20
 texture = SubResource("GradientTexture2D_gxis8")
 
 [node name="Draw" type="Node2D" parent="."]
+z_index = 20
 material = SubResource("ShaderMaterial_gsm8g")
 script = ExtResource("3_ajxuc")
 

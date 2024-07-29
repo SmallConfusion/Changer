@@ -1,6 +1,16 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c7ycrly838df"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://c7ycrly838df"]
 
 [ext_resource type="Shader" path="res://shaders/pencil.gdshader" id="1_f8r35"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qx58x"]
+frequency = 0.292
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_acrsb"]
+width = 1024
+height = 1024
+seamless = true
+noise = SubResource("FastNoiseLite_qx58x")
+
 [resource]
 shader = ExtResource("1_f8r35")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_acrsb")
