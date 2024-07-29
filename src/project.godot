@@ -46,6 +46,7 @@ game_manager=""
 [gui]
 
 theme/custom="res://default_theme.tres"
+theme/custom_font="res://Lato-Regular.ttf"
 
 [importer_defaults]
 
