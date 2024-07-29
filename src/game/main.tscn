@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmwqtuy0jft8j"]
+[gd_scene load_steps=15 format=3 uid="uid://cmwqtuy0jft8j"]
 
 [ext_resource type="PackedScene" uid="uid://cnu3fstihbbn4" path="res://game/player/player.tscn" id="1_r14v1"]
 [ext_resource type="Script" path="res://game/game_manager.gd" id="1_sfun0"]
@@ -6,12 +6,16 @@
 [ext_resource type="Script" path="res://game/camera/player_camera.gd" id="2_rlx17"]
 [ext_resource type="Script" path="res://game/line/collision_line.gd" id="3_puh8u"]
 [ext_resource type="Script" path="res://game/line/checkpoint_collision_line.gd" id="4_2x7bd"]
+[ext_resource type="Shader" path="res://shaders/fire.gdshader" id="4_4nj23"]
 [ext_resource type="Script" path="res://game/fire_rect.gd" id="4_li3n3"]
 [ext_resource type="Material" uid="uid://c7ycrly838df" path="res://shaders/materials/pencil.tres" id="6_h4fct"]
 [ext_resource type="Script" path="res://game/area/area.gd" id="7_5pj1q"]
 [ext_resource type="AudioStream" uid="uid://4xmjth58cysd" path="res://audio/sfx/ambient/fire.ogg" id="8_7lbdf"]
 [ext_resource type="Material" uid="uid://d2qijo4hkddh3" path="res://shaders/materials/marker_area.tres" id="10_akl8q"]
 [ext_resource type="Script" path="res://game/timer.gd" id="10_ujoi4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cv02r"]
+shader = ExtResource("4_4nj23")
 
 [node name="Game" type="Node2D" groups=["game_manager"]]
 script = ExtResource("1_sfun0")
@@ -36,10 +40,11 @@ player = NodePath("../Player")
 
 [node name="FireRect" type="ColorRect" parent="."]
 z_index = 10
-offset_left = -16075.0
-offset_top = -300.0
-offset_right = 29075.0
-offset_bottom = 5825.0
+material = SubResource("ShaderMaterial_cv02r")
+offset_left = -19875.0
+offset_top = -863.0
+offset_right = 25275.0
+offset_bottom = 44287.0
 color = Color(1, 0.309804, 0.309804, 0.247059)
 script = ExtResource("4_li3n3")
 
