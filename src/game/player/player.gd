@@ -70,6 +70,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	_clear_inputs()
+
 	if in_fire and current_animal != Animal.PHOENIX:
 		$FirePlayer.play()
 		die.emit()
@@ -168,6 +170,20 @@ func _handle_input(delta: float) -> bool:
 		return true
 
 	return false
+
+
+func _clear_inputs() -> void:
+	if not Input.is_action_pressed("bird"):
+		while Animal.BIRD in inputs:
+			inputs.erase(Animal.BIRD)
+
+	if not Input.is_action_pressed("fish"):
+		while Animal.FISH in inputs:
+			inputs.erase(Animal.FISH)
+
+	if not Input.is_action_pressed("phoenix"):
+		while Animal.PHOENIX in inputs:
+			inputs.erase(Animal.PHOENIX)
 
 
 func _get_current_input() -> Animal:
